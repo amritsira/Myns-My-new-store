@@ -25,7 +25,7 @@ const Category_card = () => {
         <>
             <Container>
                 <div className="imgBox">
-                    <img className="cat_card_img" alt="Shirt style" src="https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                          <img className="cat_card_img" alt="Shirt style" src="https://images.pexels.com/photos/5886038/pexels-photo-5886038.jpeg" />
                     <span className="cat_card_title">
                         <p >SHIRT <br/> STYLE</p>
                         {shopbtn}
@@ -40,7 +40,7 @@ const Category_card = () => {
                 </div>
 
                 <div className="imgBox">
-                    <img className="cat_card_img" alt="LIGHT JACKETS" src="https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                    <img className="cat_card_img" alt="LIGHT JACKETS" src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                     <span className="cat_card_title">
                         <p >LIGHT <br/> JACKETS</p>
                         {shopbtn}                    
