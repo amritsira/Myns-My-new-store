@@ -25,7 +25,7 @@ const Category_card = () => {
         <>
             <Container>
                 <div className="imgBox">
-                    <img className="cat_card_img" src="https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                    <img className="cat_card_img" alt="Shirt style" src="https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
                     <span className="cat_card_title">
                         <p >SHIRT <br/> STYLE</p>
                         {shopbtn}
@@ -33,14 +33,14 @@ const Category_card = () => {
                 </div>
 
                 <div className="imgBox">
-                    <img className="cat_card_img" src="https://images.pexels.com/photos/6939081/pexels-photo-6939081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                    <img className="cat_card_img" alt="LOUNGEWEAR LOVE" src="https://images.pexels.com/photos/6939081/pexels-photo-6939081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                     <span className="cat_card_title">
                         <p >LOUNGEWEAR <br/> LOVE</p>
                         {shopbtn}                    </span>
                 </div>
 
                 <div className="imgBox">
-                    <img className="cat_card_img" src="https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                    <img className="cat_card_img" alt="LIGHT JACKETS" src="https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                     <span className="cat_card_title">
                         <p >LIGHT <br/> JACKETS</p>
                         {shopbtn}                    
@@ -51,14 +51,14 @@ const Category_card = () => {
 
             <Container2>
                 <div className="imgBox">
-                    <img className="cat_card_img" src="https://images.pexels.com/photos/3769702/pexels-photo-3769702.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                    <img className="cat_card_img" alt="PREFECT JEANS" src="https://images.pexels.com/photos/3769702/pexels-photo-3769702.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                     <span className="cat_card_title">
                         <p >PERFECT<br/> JEANS</p>
                         {shopbtn}                    </span>
                 </div>
 
                 <div className="imgBox">
-                    <img className="cat_card_img" src="https://images.pexels.com/photos/1959853/pexels-photo-1959853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                    <img className="cat_card_img" alt="NEW DRESSES" src="https://images.pexels.com/photos/1959853/pexels-photo-1959853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                     <span className="cat_card_title">
                         <p >NEW <br/>DRESSES</p>
                         {shopbtn}                    </span>
