@@ -107,7 +107,7 @@ export const Slideritems = [
     {
       id: 1,
       img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "SHIRT STYLE!",
+      title: `SHIRT STYLE!`,
     },
     {
       id: 2,
@@ -119,6 +119,20 @@ export const Slideritems = [
       img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       title: "LIGHT JACKETS",
     },
+  ];
+
+
+  export const categories2 = [
+    {
+      id: 4,
+      img: "https://images.pexels.com/photos/3769702/pexels-photo-3769702.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      title: `PERFECT JEANS`,
+    },
+    {
+      id: 5,
+      img: "https://images.pexels.com/photos/1959853/pexels-photo-1959853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      title: "NEW DRESSES",
+    }
   ];
 
 
