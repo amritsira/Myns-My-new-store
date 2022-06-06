@@ -29,10 +29,12 @@
     margin-top: 20px;
     padding: 16px;
     border: none;
+    transition:all 0.3s ease;
 }
 
 .shop_now_btn:hover{
     cursor:pointer;
+    transform: scale(1.04);
 }
 
 .desc_box{
