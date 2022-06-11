@@ -1,6 +1,7 @@
 import React from 'react'
 import './Header.css';
 import SearchIcon from '@mui/icons-material/Search';
+import { FavoriteBorderOutlined } from '@mui/icons-material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 // import styled from '@emotion/styled';
 import { Badge } from '@mui/material';
@@ -35,7 +36,10 @@ ${mobile({fontSize:"11px", gap:"1vh"})}
 
 
 
-function Header() {
+function Header({cartqty , wishlistqty}) {
+    
+    
+    
     return (
         <div className='header'>
 
@@ -57,8 +61,18 @@ function Header() {
                 <Link to="/login">SIGN-IN</Link>
                 </div>
 
+
+                
                 <div className='header__option'>
-                    <Badge badgeContent={4} color="primary">
+                    <Badge badgeContent={wishlistqty} color="primary">
+
+                    <Link to="/wishlist"><FavoriteBorderOutlined className='header__cartImage' /></Link>
+                    </Badge>
+
+                </div>
+
+                <div className='header__option'>
+                    <Badge badgeContent={cartqty} color="primary">
 
                     <Link to="/cart"><ShoppingCartOutlinedIcon className='header__cartImage' /></Link>
                     </Badge>

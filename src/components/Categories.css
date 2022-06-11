@@ -1,70 +1,70 @@
 .imgBox{
-    display: flex;
-    justify-content: space-around;
-    gap: 5px;
-  }
- 
- 
- 
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+}
 
+
+
+
+.cat_card_title{
+  POSITION: ABSOLUTE;
+  margin-top: 25vh;
+    color: white;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+@media screen and (max-width:380px) {
   .cat_card_title{
-    POSITION: ABSOLUTE;
-    margin-top: 25vh;
-      color: white;
-      font-weight: 600;
-      font-size: 40px;
-      text-align: center;
-      letter-spacing: 3px;
+    margin-top: 2vh;
+    font-size: 13px;
   }
+}
 
-  @media screen and (max-width:380px) {
-    .cat_card_title{
-      margin-top: 2vh;
-      font-size: 13px;
-    }
-  }
-  
+.cat_card_btn{
+ 
+  background-color: yellow;
+  box-shadow: 0px 0px 5px 0px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 16px;
+  border: none;
+  transition:all 1s ease;
+  opacity:0;
+}
+
+@media screen and (max-width:380px) {
   .cat_card_btn{
-   
-    background-color: yellow;
-    box-shadow: 0px 0px 5px 0px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    padding: 16px;
-    border: none;
-    transition:all 1s ease;
-    opacity:0;
+    padding: 2px 5px;
+    letter-spacing: 0;
   }
+}
 
-  @media screen and (max-width:380px) {
-    .cat_card_btn{
-      padding: 2px 5px;
-      letter-spacing: 0;
-    }
-  }
+.cat_card_btn:hover{
+    cursor:pointer;
+    transform: scale(1.04);
+}
 
-  .cat_card_btn:hover{
-      cursor:pointer;
-      transform: scale(1.04);
-  }
-
-  .cat_card_container{
-      display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+.cat_card_container{
+    display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
 
-  .cat_card_container_2{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  }
+.cat_card_container_2{
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
 
 
 
-  .cat_card_img {
-    height: 541px;
-    padding: 5px;
-    width: 100%;
+.cat_card_img {
+  height: 541px;
+  padding: 5px;
+  width: 100%;
 }
 
 @media screen and (max-width:380px) {
@@ -73,13 +73,14 @@
   }
 }
 
-.imgBox{    
-    opacity: 1;
-    transition:all 0.3s ease;
-  }
-  .imgBox:hover{
-    opacity: 0.8;
-  }
+.imgBox{
+  
+  opacity: 1;
+  transition:all 0.3s ease;
+}
+.imgBox:hover{
+  opacity: 0.8;
+}
 
 .imgBox:hover  .cat_card_btn{
   opacity: 1;

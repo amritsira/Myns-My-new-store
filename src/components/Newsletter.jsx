@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
+
+import styled from 'styled-components';
 import { Send } from '@mui/icons-material';
-import react from 'react';
 import {mobile} from '../responsive';
 
 const Container = styled.div`
