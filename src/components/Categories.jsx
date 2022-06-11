@@ -11,7 +11,7 @@ const Container = styled.div`
 `
 
 const Container2 = styled.div`
-
+  padding:9px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 `
