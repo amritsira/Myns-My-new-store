@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import Header from "../components/Header";
+// import Header from "../components/Header";
 // import Announcement from "../components/Announcement";
 import Products from "../components/Products";
 import Newsletter from "../components/Newsletter";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 
 const Container = styled.div``;
@@ -17,10 +17,10 @@ const FilterContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Filter = styled.div`
-  margin: 20px;
-  ${mobile({ width: "0px 20px", display: "flex", flexDirection: "column" })}
-`;
+// const Filter = styled.div`
+//   margin: 20px;
+//   ${mobile({ width: "0px 20px", display: "flex", flexDirection: "column" })}
+// `;
 
 const FilterText = styled.span`
   font-size: 20px;
@@ -36,14 +36,17 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-const ProductList = () => {
+const ProductList = ({addtocart , addtowishlist}) => {
   return (
     <Container>
-      <Header />
+      {/* <Header /> */}
       {/* <Announcement /> */}
-      <Title>Dresses</Title>
+      <Title>Products</Title>
+      
       <FilterContainer>
-        <Filter>
+        
+        
+        {/* <Filter>
           <FilterText>Filter Products:</FilterText>
           <Select>
             <Option disabled selected>
@@ -66,19 +69,24 @@ const ProductList = () => {
             <Option>L</Option>
             <Option>XL</Option>
           </Select>
-        </Filter>
-        <Filter>
+        </Filter> */}
+        
+        
+        
+        {/* <Filter>
           <FilterText>Sort Products:</FilterText>
           <Select>
             <Option selected>Newest</Option>
             <Option>Price (asc)</Option>
             <Option>Price (desc)</Option>
           </Select>
-        </Filter>
+        </Filter> */}
       </FilterContainer>
-      <Products />
+
+      <Products addtocart={addtocart} addtowishlist={addtowishlist} />
       <Newsletter />
-      <Footer />
+      {/* <Footer /> */}
+    
     </Container>
   );
 };

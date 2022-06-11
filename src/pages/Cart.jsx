@@ -1,9 +1,12 @@
-import { Add, Remove } from "@mui/icons-material";
+// import { Add, Remove } from "@mui/icons-material";
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import styled from '@emotion/styled';
 // import Announcement from "../components/Announcement";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+// import Footer from "../components/Footer";
+// import Header from "../components/Header";
 import { mobile } from "../responsive";
+// import { allproducts } from "../data.js"
+import { Link } from "react-router-dom";
 
 const Container = styled.div``;
 
@@ -47,7 +50,6 @@ const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   ${mobile({ flexDirection: "column" })}
-
 `;
 
 const Info = styled.div`
@@ -101,6 +103,12 @@ const ProductAmountContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  cursor:pointer;
+  transition:all 0.5s ease;
+
+  &:hover{
+      transform:scale(1.04);
+  }
 `;
 
 const ProductAmount = styled.div`
@@ -153,50 +161,91 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const Cart = () => {
+const Delbutton = styled.button`
+  cursor:pointer;
+
+`
+
+// let cartItems = [];
+// let cartlistitems = [];
+// if(sessionStorage.cartItems != null){
+//   cartItems = sessionStorage.cartItems.split(",");
+
+// cartlistitems = allproducts.filter((item)=>{
+//                       return  cartItems.includes((item.id).toString());
+//                   })
+// }
+
+const Cart = ({cartItems ,addtocart , deleteitem}) => {
+  
+
+  let subtotal = 0;
+  for(let item of cartItems){
+    subtotal += item.price;
+  }
+  subtotal = subtotal.toFixed(2);
+  
+
   return (
     <Container>
-      <Header />
       {/* <Announcement /> */}
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
-          <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
+          <TopButton><Link to="/productlist" >CONTINUE SHOPPING </Link></TopButton>
+          {/* <TopTexts>
+            <TopText>Shopping Bag({cartItems.length})</TopText>
             <TopText>Your Wishlist (0)</TopText>
-          </TopTexts>
+          </TopTexts> */}
           <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
           <Info>
-            <Product>
-              <ProductDetail>
-                <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> JESSIE THUNDER SHOES
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b> 93813718293
-                  </ProductId>
-                  <ProductColor color="black" />
-                  <ProductSize>
-                    <b>Size:</b> 37.5
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetail>
-            </Product>
+
+            {
+              
+              cartItems.map((item) => {
+              
+                return (
+                  <Product>
+                    <ProductDetail>
+                      {/* <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" /> */}
+                        <Image src={item.image} />
+                      <Details>
+                        <ProductName>
+                          <b>Product:</b> {item.title}
+                        </ProductName>
+                        <ProductId>
+                          <b>ID:</b> {item.id}
+                        </ProductId>
+                        <ProductColor color="darkblue" />
+                        <ProductSize>
+                          <b>Size:</b> 37.5
+                        </ProductSize>
+                      </Details>
+                    </ProductDetail>
+                    <PriceDetail>
+                    
+
+                      {/* <Delbutton><DeleteIcon/></Delbutton> */}
+                      
+                      <ProductAmountContainer>
+                        <DeleteOutlinedIcon  onClick={()=> deleteitem(item)}/>
+                        {/* <ProductAmount>2</ProductAmount>
+                        <Remove /> */}
+                      </ProductAmountContainer>
+                      <ProductPrice>$ {item.price}</ProductPrice>
+                    </PriceDetail>
+                  </Product>
+                );
+                
+              })
+            }
+
+
             <Hr />
-            <Product>
+
+            {/* <Product>
               <ProductDetail>
                 <Image src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" />
                 <Details>
@@ -220,13 +269,19 @@ const Cart = () => {
                 </ProductAmountContainer>
                 <ProductPrice>$ 20</ProductPrice>
               </PriceDetail>
-            </Product>
+            </Product> */}
+
           </Info>
+
+
+            
+
+
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>$ {subtotal}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -238,13 +293,13 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>$ {subtotal}</SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT NOW</Button>
           </Summary>
         </Bottom>
       </Wrapper>
-      <Footer />
+     
     </Container>
   );
 };
