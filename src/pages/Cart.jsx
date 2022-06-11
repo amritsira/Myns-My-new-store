@@ -7,6 +7,8 @@ import styled from '@emotion/styled';
 import { mobile } from "../responsive";
 // import { allproducts } from "../data.js"
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import Notecontext from '../context/Notecontext';
 
 const Container = styled.div``;
 
@@ -37,14 +39,14 @@ const TopButton = styled.button`
   color: ${(props) => props.type === "filled" && "white"};
 `;
 
-const TopTexts = styled.div`
-  ${mobile({ display: "none" })}
-`;
-const TopText = styled.span`
-  text-decoration: underline;
-  cursor: pointer;
-  margin: 0px 10px;
-`;
+// const TopTexts = styled.div`
+//   ${mobile({ display: "none" })}
+// `;
+// const TopText = styled.span`
+//   text-decoration: underline;
+//   cursor: pointer;
+//   margin: 0px 10px;
+// `;
 
 const Bottom = styled.div`
   display: flex;
@@ -111,11 +113,11 @@ const ProductAmountContainer = styled.div`
   }
 `;
 
-const ProductAmount = styled.div`
-  font-size: 24px;
-  margin: 5px;
-  ${mobile({ margin: "5px 15px" })}
-`;
+// const ProductAmount = styled.div`
+//   font-size: 24px;
+//   margin: 5px;
+//   ${mobile({ margin: "5px 15px" })}
+// `;
 
 const ProductPrice = styled.div`
   font-size: 30px;
@@ -161,10 +163,10 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const Delbutton = styled.button`
-  cursor:pointer;
+// const Delbutton = styled.button`
+//   cursor:pointer;
 
-`
+// `
 
 // let cartItems = [];
 // let cartlistitems = [];
@@ -176,11 +178,11 @@ const Delbutton = styled.button`
 //                   })
 // }
 
-const Cart = ({cartItems ,addtocart , deleteitem}) => {
+const Cart = () => {
   
-
+let contextdata = useContext(Notecontext);
   let subtotal = 0;
-  for(let item of cartItems){
+  for(let item of contextdata.cartItems){
     subtotal += item.price;
   }
   subtotal = subtotal.toFixed(2);
@@ -204,7 +206,7 @@ const Cart = ({cartItems ,addtocart , deleteitem}) => {
 
             {
               
-              cartItems.map((item) => {
+              contextdata.cartItems.map((item) => {
               
                 return (
                   <Product>
@@ -230,7 +232,7 @@ const Cart = ({cartItems ,addtocart , deleteitem}) => {
                       {/* <Delbutton><DeleteIcon/></Delbutton> */}
                       
                       <ProductAmountContainer>
-                        <DeleteOutlinedIcon  onClick={()=> deleteitem(item)}/>
+                        <DeleteOutlinedIcon  onClick={()=> contextdata.deleteitem(item)}/>
                         {/* <ProductAmount>2</ProductAmount>
                         <Remove /> */}
                       </ProductAmountContainer>

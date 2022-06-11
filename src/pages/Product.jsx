@@ -1,4 +1,4 @@
-import { Add, Remove } from "@mui/icons-material";
+// import { Add, Remove } from "@mui/icons-material";
 import styled from '@emotion/styled';
 // import Footer from "../components/Footer";
 // import Header from "../components/Header";
@@ -6,7 +6,8 @@ import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
 import { allproducts} from '../data';
 import { useParams } from "react-router";
-
+import Notecontext from "../context/Notecontext";
+import { useContext } from "react";
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -93,16 +94,16 @@ const AmountContainer = styled.div`
   font-weight: 700;
 `;
 
-const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid teal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 5px;
-`;
+// const Amount = styled.span`
+//   width: 30px;
+//   height: 30px;
+//   border-radius: 10px;
+//   border: 1px solid teal;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: 0px 5px;
+// `;
 
 const Button = styled.button`
   padding: 15px;
@@ -116,12 +117,13 @@ const Button = styled.button`
   }
 `;
 
-const Product = ({addtocart , addtowishlist }) => {
+const Product = () => {
 
+  let contextdata = useContext(Notecontext);
   let  params  = useParams();
 
   let item = allproducts.filter((curritem)=>{
-      return curritem.id==Number(params.id);
+      return curritem.id===Number(params.id);
   })
 
 
@@ -131,7 +133,7 @@ const Product = ({addtocart , addtowishlist }) => {
 
       <Wrapper>
         <ImgContainer>
-          <Image src={item[0].image} />
+          <Image src={item[0].image} alt={item[0].title} />
         </ImgContainer>
         <InfoContainer>
           <Title>{item[0].title}</Title>
@@ -163,7 +165,7 @@ const Product = ({addtocart , addtowishlist }) => {
               <Amount>1</Amount>
               <Add/> */}
             </AmountContainer>
-            <Button onClick={()=>addtocart(item[0])}>ADD TO CART</Button>
+            <Button onClick={()=>contextdata.addtocart(item[0])}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

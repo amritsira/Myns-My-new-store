@@ -7,6 +7,8 @@ import styled from '@emotion/styled';
 import { mobile } from "../responsive";
 // import { allproducts } from "../data.js"
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import Notecontext from '../context/Notecontext';
 
 const Container = styled.div``;
 
@@ -118,11 +120,11 @@ const ProductAmountContainer = styled.div`
   }
 `;
 
-const ProductAmount = styled.div`
-  font-size: 24px;
-  margin: 5px;
-  ${mobile({ margin: "5px 15px" })}
-`;
+// const ProductAmount = styled.div`
+//   font-size: 24px;
+//   margin: 5px;
+//   ${mobile({ margin: "5px 15px" })}
+// `;
 
 const ProductPrice = styled.div`
   font-size: 30px;
@@ -131,48 +133,48 @@ const ProductPrice = styled.div`
   ${mobile({ marginBottom: "20px" })}
 `;
 
-const Hr = styled.hr`
-  background-color: #eee;
-  border: none;
-  height: 1px;
-`;
+// const Hr = styled.hr`
+//   background-color: #eee;
+//   border: none;
+//   height: 1px;
+// `;
 
-const Summary = styled.div`
-  flex: 1;
-  border: 0.5px solid lightgray;
-  border-radius: 10px;
-  padding: 20px;
-  height: 50vh;
-`;
+// const Summary = styled.div`
+//   flex: 1;
+//   border: 0.5px solid lightgray;
+//   border-radius: 10px;
+//   padding: 20px;
+//   height: 50vh;
+// `;
 
-const SummaryTitle = styled.h1`
-  font-weight: 200;
-`;
+// const SummaryTitle = styled.h1`
+//   font-weight: 200;
+// `;
 
-const SummaryItem = styled.div`
-  margin: 30px 0px;
-  display: flex;
-  justify-content: space-between;
-  font-weight: ${(props) => props.type === "total" && "500"};
-  font-size: ${(props) => props.type === "total" && "24px"};
-`;
+// const SummaryItem = styled.div`
+//   margin: 30px 0px;
+//   display: flex;
+//   justify-content: space-between;
+//   font-weight: ${(props) => props.type === "total" && "500"};
+//   font-size: ${(props) => props.type === "total" && "24px"};
+// `;
 
-const SummaryItemText = styled.span``;
+// const SummaryItemText = styled.span``;
 
-const SummaryItemPrice = styled.span``;
+// const SummaryItemPrice = styled.span``;
 
-const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  background-color: black;
-  color: white;
-  font-weight: 600;
-`;
+// const Button = styled.button`
+//   width: 100%;
+//   padding: 10px;
+//   background-color: black;
+//   color: white;
+//   font-weight: 600;
+// `;
 
-const Delbutton = styled.button`
-  cursor:pointer;
+// const Delbutton = styled.button`
+//   cursor:pointer;
 
-`
+// `
 
 // let cartItems = [];
 // let cartlistitems = [];
@@ -184,9 +186,9 @@ const Delbutton = styled.button`
 //                   })
 // }
 
-const Wishlist = ({wishlist , addtocart ,removewishlist}) => {
+const Wishlist = () => {
   
-
+let contextdata =useContext(Notecontext);
 
 
   return (
@@ -198,7 +200,7 @@ const Wishlist = ({wishlist , addtocart ,removewishlist}) => {
           <TopButton><Link to="/productlist" >CONTINUE SHOPPING </Link></TopButton>
           <TopTexts>
             {/* <TopText>Shopping Bag({cartItems.length})</TopText> */}
-            <TopText>Your Wishlist ({wishlist.length})</TopText>
+            <TopText>Your Wishlist ({contextdata.wishlist.length})</TopText>
           </TopTexts>
         </Top>
         <Bottom>
@@ -206,7 +208,7 @@ const Wishlist = ({wishlist , addtocart ,removewishlist}) => {
 
             {
               
-                wishlist.map((item) => {
+              contextdata.wishlist.map((item) => {
               
                 return (
                   <Product>
@@ -232,7 +234,7 @@ const Wishlist = ({wishlist , addtocart ,removewishlist}) => {
                       {/* <Delbutton><DeleteIcon/></Delbutton> */}
                       
                       <ProductAmountContainer>
-                        <DeleteOutlinedIcon  onClick={()=>removewishlist(item)}/>
+                        <DeleteOutlinedIcon  onClick={()=>contextdata.removewishlist(item)}/>
                         {/* <ProductAmount>2</ProductAmount>
                         <Remove /> */}
                         {/* <i className="fa fa-trash btn"  ></i> */}
@@ -240,7 +242,7 @@ const Wishlist = ({wishlist , addtocart ,removewishlist}) => {
                       <ProductPrice>$ {item.price}</ProductPrice>
 
                       {
-                        (item.cartqty>0) ? <p style={{color:"green",fontWeight:"bold"}}>IN CART<i className="fa fa-check"></i></p> : <button class="btn" style={btn_css} onClick={()=>addtocart(item)}>Add to Cart</button>
+                        (item.cartqty>0) ? <p style={{color:"green",fontWeight:"bold"}}>IN CART<i className="fa fa-check"></i></p> : <button class="btn" style={btn_css} onClick={()=>contextdata.addtocart(item)}>Add to Cart</button>
                       }
                       
 
