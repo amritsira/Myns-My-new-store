@@ -23,7 +23,7 @@ const shopbtn = <button className="cat_card_btn">
 
 
 
-function categoryCard(props) {
+function Categorycard(props) {
     
     let arr = props.title.split(" ");
     return (
@@ -41,7 +41,7 @@ function categoryCard(props) {
 
 
 
-function categoryCard2(props) {
+function Categorycard2(props) {
     let arr = props.title.split(" ");
     return (
         <>
@@ -66,13 +66,13 @@ const Categories = () => {
             <Container>
 
                 {categories.map(item => (
-                    <categoryCard img={item.img} key={item.id} title={item.title} />
+                    <Categorycard img={item.img} key={item.id} title={item.title} />
                 ))}
             </Container>
 
             <Container2>
                 {categories2.map(item => (
-                    <categoryCard2 img={item.img} key={item.id} title={item.title} />
+                    <Categorycard2 img={item.img} key={item.id} title={item.title} />
                 ))}
             </Container2>
         </>

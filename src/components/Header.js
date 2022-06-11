@@ -8,7 +8,9 @@ import { Badge } from '@mui/material';
 import {mobile} from '../responsive';
 
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";  
+import { useContext } from 'react'
+import Notecontext from '../context/Notecontext';
 
 const Title = styled.h1`
 margin:0 10px;
@@ -38,7 +40,8 @@ ${mobile({fontSize:"11px", gap:"1vh"})}
 
 function Header({cartqty , wishlistqty}) {
     
-    
+    let contextdata = useContext(Notecontext);
+console.log(contextdata);
     
     return (
         <div className='header'>
@@ -64,7 +67,7 @@ function Header({cartqty , wishlistqty}) {
 
                 
                 <div className='header__option'>
-                    <Badge badgeContent={wishlistqty} color="primary">
+                    <Badge badgeContent={contextdata.wishlistqty} color="primary">
 
                     <Link to="/wishlist"><FavoriteBorderOutlined className='header__cartImage' /></Link>
                     </Badge>
@@ -72,7 +75,7 @@ function Header({cartqty , wishlistqty}) {
                 </div>
 
                 <div className='header__option'>
-                    <Badge badgeContent={cartqty} color="primary">
+                    <Badge badgeContent={contextdata.cartqty} color="primary">
 
                     <Link to="/cart"><ShoppingCartOutlinedIcon className='header__cartImage' /></Link>
                     </Badge>
