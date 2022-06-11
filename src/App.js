@@ -23,9 +23,11 @@ function App() {
       
         {/* <MyRouter cartqty={cartqty} cartItems={cartItems} addtocart={addtocart} deleteitem={deleteitem} wishlist={wishlist} addtowishlist={addtowishlist}  removewishlist={removewishlist}/> */}
       <Notestate>
-         {(islogin()==='true') ? <Header/> : undefined }
+//          {(islogin()==='true') ? <Header/> : undefined }
+         <Header/>
         <MyRouter/>
-        {(islogin() === 'true') ? <Footer/> : undefined }
+        <Footer/>
+//         {(islogin() === 'true') ? <Footer/> : undefined }
         
       </Notestate>
     </div>
