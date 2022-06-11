@@ -1,4 +1,5 @@
-import styled from '@emotion/styled';
+
+import styled from 'styled-components';
 import { Facebook, Instagram, Pinterest, Twitter, MailOutline,Phone, Room } from '@mui/icons-material';
 import React from 'react'
 import {mobile} from '../responsive';

@@ -12,7 +12,6 @@ const Container = styled.div`
 
 const Container2 = styled.div`
 
-  padding: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 `
@@ -24,13 +23,13 @@ const shopbtn = <button className="cat_card_btn">
 
 
 
-function Category_card(props) {
+function categoryCard(props) {
     
     let arr = props.title.split(" ");
     return (
         <>
             <div className="imgBox" key={props.id}>
-                <img className="cat_card_img" src={props.img} />
+                <img className="cat_card_img" src={props.img}  alt={props.title}/>
                 <span className="cat_card_title">
                     <p > {arr[0]} <br/> {arr[1]}</p>
                     {shopbtn}
@@ -42,13 +41,13 @@ function Category_card(props) {
 
 
 
-function Category_card2(props) {
+function categoryCard2(props) {
     let arr = props.title.split(" ");
     return (
         <>
 
             <div className="imgBox" key={props.id}>
-                <img className="cat_card_img" src={props.img} />
+                <img className="cat_card_img" src={props.img} alt={props.title} />
                 <span className="cat_card_title">
                 <p > {arr[0]} <br/> {arr[1]}</p>
                     {shopbtn}
@@ -67,13 +66,13 @@ const Categories = () => {
             <Container>
 
                 {categories.map(item => (
-                    <Category_card img={item.img} key={item.id} title={item.title} />
+                    <categoryCard img={item.img} key={item.id} title={item.title} />
                 ))}
             </Container>
 
             <Container2>
                 {categories2.map(item => (
-                    <Category_card2 img={item.img} key={item.id} title={item.title} />
+                    <categoryCard2 img={item.img} key={item.id} title={item.title} />
                 ))}
             </Container2>
         </>

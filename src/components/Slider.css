@@ -22,7 +22,7 @@
 }
 
 .shop_now_btn{
-   background-color: yellow;
+    background-color: yellow;
     box-shadow: 0px 0px 5px 0px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -31,7 +31,6 @@
     border: none;
     transition:all 0.3s ease;
 }
-
 .shop_now_btn:hover{
     cursor:pointer;
     transform: scale(1.04);
@@ -66,8 +65,8 @@
     .shop_now_btn{
         font-size: 10px;
         margin-top: 0;
-    letter-spacing: 2px;
-     padding: 2px 5px;
+        letter-spacing: 2px;
+        padding: 2px 5px;
     }
     .desc{
         font-size: 10px;
