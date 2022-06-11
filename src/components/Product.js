@@ -3,12 +3,19 @@ import './Product.css';
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-function Product({item , addtocart , addtowishlist}) {
+import {useContext} from 'react';
+import Notecontext from '../context/Notecontext';
+
+function Product({item }) {
     // const [cartlength, setCartlength] = useState([]);
     // const [wishlist, setWishlist] = useState([]);
 
     // const pdcontext = useContext();
     // console.log(pdcontext);
+    
+    let contextdata = useContext(Notecontext);
+    
+    
     return (
         <div className='product' >
             <div className="circle"></div>
@@ -23,7 +30,7 @@ function Product({item , addtocart , addtowishlist}) {
                     (item.cartqty > 0) ? 
                     <ShoppingCartIcon className="btn" onClick={()=>alert("already in the cart")}/>
                      :
-                     <ShoppingCartOutlined className="btn" onClick={()=>addtocart(item)}/>
+                     <ShoppingCartOutlined className="btn" onClick={()=>contextdata.addtocart(item)}/>
                     }
                 </span>
                 {/* <span className="icon">
@@ -36,7 +43,7 @@ function Product({item , addtocart , addtowishlist}) {
                     (item.wishlist) ? 
                     <FavoriteIcon className="btn"/>
                     :
-                    <FavoriteBorderOutlined className="btn" onClick={()=>addtowishlist(item)}/>
+                    <FavoriteBorderOutlined className="btn" onClick={()=>contextdata.addtowishlist(item)}/>
                     }
 
 
