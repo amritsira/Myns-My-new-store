@@ -19,7 +19,7 @@ function Home() {
       
    
     useEffect(()=>{
-        if(islogin()!=='true')
+        if(islogin()!=true)
         {
             console.log("hlsakjflksf")
             navigateto('/login')
