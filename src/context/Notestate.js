@@ -6,6 +6,7 @@ const Notestate = (props)=>{
     const [wishlist, setWishlist] = useState([]);
     const [cartqty, setCartqty] = useState(0);
     const [wishlistqty, setWishlistqty] = useState(0);
+    const [login , setlogin] = useState(false);
 
     function doesExist(item) {
         return cartItems.includes(item);
@@ -52,7 +53,7 @@ const Notestate = (props)=>{
 
 
   return (  
-        <Notecontext.Provider value={ {wishlistqty , cartqty , addtocart , removewishlist , cartItems ,deleteitem,wishlist,addtowishlist,    }}>
+        <Notecontext.Provider value={ {wishlistqty ,login ,setlogin , cartqty , addtocart , removewishlist , cartItems ,deleteitem,wishlist,addtowishlist,    }}>
             {props.children}
         </Notecontext.Provider>
     )
