@@ -6,10 +6,13 @@ const Notestate = (props)=>{
     const [wishlist, setWishlist] = useState([]);
     const [cartqty, setCartqty] = useState(0);
     const [wishlistqty, setWishlistqty] = useState(0);
-    const [login , setlogin] = useState(false);
+    const [loggedin , setloggedin] = useState(false);
 
     function doesExist(item) {
         return cartItems.includes(item);
+    }
+    function doesExistinWL(item) {
+        return wishlist.includes(item);
     }
 
     function addtocart(item) {
@@ -19,15 +22,16 @@ const Notestate = (props)=>{
             setCartItems([...cartItems, tempobj]);
             setCartqty(cartItems.length + 1);
         }
+        setloggedin(true);
     }
 
     function addtowishlist(item) {
         let tempobj = item;
         tempobj.wishlist = true;
-
-        setWishlist([...wishlist, tempobj]);
-        setWishlistqty(wishlist.length + 1);
-
+        if (!doesExistinWL(item)) {
+            setWishlist([...wishlist, tempobj]);
+            setWishlistqty(wishlist.length + 1);
+        }
     }
 
     function deleteitem(item) {
@@ -53,7 +57,7 @@ const Notestate = (props)=>{
 
 
   return (  
-        <Notecontext.Provider value={ {wishlistqty ,login ,setlogin , cartqty , addtocart , removewishlist , cartItems ,deleteitem,wishlist,addtowishlist,    }}>
+        <Notecontext.Provider value={ {wishlistqty ,loggedin ,setloggedin, cartqty , addtocart , removewishlist , cartItems ,deleteitem,wishlist,addtowishlist    }}>
             {props.children}
         </Notecontext.Provider>
     )
