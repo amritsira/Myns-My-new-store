@@ -1,0 +1,63 @@
+.header{
+    color: rgb(33, 31, 31);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 15px;
+
+}
+
+
+
+.header__logo{
+    height: 40px;
+    object-fit: contain;
+    margin: 0 20px;
+    margin-top: 13px;
+}
+
+
+.header__search{
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+}
+
+
+.header_searchInput{
+    height: 12px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    /* border-radius:  5px 0 0 5px; */
+}
+
+.header__searchIcon{
+    padding: 5px;
+    height: 22px !important;
+    /* background-color: #000000; */
+    /* border-radius: 0 5px 5px 0; */
+}
+
+.header__option{
+    font-weight:500;
+    transition: all 0.3s ease;
+    
+}
+
+a{
+    text-decoration: none;
+    color: rgb(33, 31, 31);
+}
+
+.header__option:hover
+{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
