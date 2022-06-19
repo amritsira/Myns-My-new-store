@@ -29,8 +29,8 @@ const MyRouter = () => {
   return (
         <>
 
-        {(islogin() ==='true') ? <Header/> : undefined }
-
+//         {(islogin() ==='true') ? <Header/> : undefined }
+{(sessionStorage.login === 'true')  ? <Header/> : undefined }
         <Routes>
 
           <Route path="/home" element={<Home />} />
