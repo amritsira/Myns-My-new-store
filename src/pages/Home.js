@@ -8,36 +8,38 @@ import {useNavigate} from 'react-router-dom';
 import {useContext} from 'react';
 import Notecontext from '../context/Notecontext';
 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 function Home() {
 
     let contextdata = useContext(Notecontext);
     const navigateto = useNavigate();
 
     const islogin = ()=>{
-        return Boolean(sessionStorage.login);
+        return sessionStorage.login;
       }
-     
-      
-   
+
     useEffect(()=>{
-        if(islogin()!=true)
+        if(islogin()==='false')
         {
             contextdata.setlogin(false);
-            console.log(islogin())
+            // console.log(islogin())
             navigateto('/login')
         }else{
             contextdata.setlogin(true);
         }
     },[]);
-
+     
+      
+  
     return (
         <div className='home'>
-            {/* <Header /> */}
+            <Header />
             <Slider/>
             <Categories/>
-            <Products />
+            <Products ratingAbove="4" />
             <Newsletter/>
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     )
 }

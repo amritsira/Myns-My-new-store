@@ -5,12 +5,25 @@ import { FavoriteBorderOutlined } from '@mui/icons-material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 // import styled from '@emotion/styled';
 import { Badge } from '@mui/material';
-import {mobile} from '../responsive';
+import { mobile } from '../responsive';
 
 import styled from 'styled-components';
-import { Link } from "react-router-dom";  
 import { useContext } from 'react'
 import Notecontext from '../context/Notecontext';
+
+
+
+// Import the functions you need from the SDKs you need
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "firebase/app";
+import { getAuth ,signOut } from "firebase/auth";
+import { Link , useNavigate} from 'react-router-dom';
+
+
+
+
+
 
 const Title = styled.h1`
 margin:0 10px;
@@ -33,16 +46,71 @@ flex:1;
 justify-content: end;
 gap: 4vh;
 
-${mobile({fontSize:"11px", gap:"1vh"})}
+${mobile({ fontSize: "11px", gap: "1vh" })}
 `
 
 
 
-function Header({cartqty , wishlistqty}) {
-    
+
+const firebaseConfig = {
+    apiKey: "AIzaSyB6Z4JD-jIeEXRPe7_dewV14CVLB-XIbqM",
+    authDomain: "myns-9ce9a.firebaseapp.com",
+    projectId: "myns-9ce9a",
+    storageBucket: "myns-9ce9a.appspot.com",
+    messagingSenderId: "1053629932722",
+    appId: "1:1053629932722:web:314c4d9895d4f6843795ab"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+//   const provider = new GoogleAuthProvider(app);
+  const auth = getAuth(app);
+
+
+
+function Header({ cartqty, wishlistqty }) {
     let contextdata = useContext(Notecontext);
-console.log(contextdata);
+
+
+    const navigateto = useNavigate();
+
+
+
+function Logout(){
     
+
+console.log("here");
+
+        signOut(auth).then(() => {
+                
+                sessionStorage.setItem("Name","");
+                sessionStorage.setItem("Email","");
+                sessionStorage.setItem("Image","");
+                sessionStorage.setItem("login",false);
+                contextdata.setlogin(false);
+                navigateto('/login');
+
+            }).catch((error) => {
+                alert("An error happened.");
+            });
+
+   
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+    console.log(contextdata);
+
     return (
         <div className='header'>
 
@@ -56,31 +124,30 @@ console.log(contextdata);
             <Title><Link to="/">Myns</Link> </Title>
 
             <Right >
-                <div className='header__option'>
+                {/* <div className='header__option'>
                     <Link to="/register">REGISTER</Link>
                 </div>
 
                 <div className='header__option'>
-                <Link to="/login">SIGN-IN</Link>
-                </div>
+                    <Link to="/login">SIGN-IN</Link>
+                </div> */}
 
-
-                
                 <div className='header__option'>
                     <Badge badgeContent={contextdata.wishlistqty} color="primary">
-
-                    <Link to="/wishlist"><FavoriteBorderOutlined className='header__cartImage' /></Link>
+                        <Link to="/wishlist"><FavoriteBorderOutlined className='header__cartImage' /></Link>
                     </Badge>
-
                 </div>
 
                 <div className='header__option'>
                     <Badge badgeContent={contextdata.cartqty} color="primary">
-
-                    <Link to="/cart"><ShoppingCartOutlinedIcon className='header__cartImage' /></Link>
+                        <Link to="/cart"><ShoppingCartOutlinedIcon className='header__cartImage' /></Link>
                     </Badge>
-
                 </div>
+
+                <div className='header__option'>
+                    <span onClick={Logout}>SIGN-OUT</span>
+                </div>
+
             </Right>
         </div>
     );

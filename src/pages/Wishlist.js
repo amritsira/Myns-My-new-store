@@ -2,8 +2,8 @@
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import styled from '@emotion/styled';
 // import Announcement from "../components/Announcement";
-// import Footer from "../components/Footer";
-// import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import { mobile } from "../responsive";
 // import { allproducts } from "../data.js"
 import { Link } from "react-router-dom";
@@ -193,6 +193,7 @@ let contextdata =useContext(Notecontext);
 
   return (
     <Container>
+         <Header/>
       {/* <Announcement /> */}
       <Wrapper>
         <Title>YOUR WISHLIST</Title>
@@ -266,7 +267,7 @@ let contextdata =useContext(Notecontext);
           
         </Bottom>
       </Wrapper>
-     
+     <Footer/>
     </Container>
   );
 };

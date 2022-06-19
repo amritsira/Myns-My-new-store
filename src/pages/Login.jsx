@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
 import { mobile } from "../responsive";
+import {useContext} from 'react';
+import Notecontext from '../context/Notecontext';
+
+
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-
-
-
+import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
 import {useNavigate , Link} from 'react-router-dom';
 
 
@@ -87,7 +87,7 @@ const CustomLink = styled.a`
 
 const Login = () => {
 
-
+  let contextdata = useContext(Notecontext);
 
   const navigateto = useNavigate();
 
@@ -123,25 +123,25 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        // const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
         console.log(user);
         // alert("success");
-        
+        contextdata.setlogin(true);
         storeLogindata(user.displayName , user.email , user.photoURL);
 
         navigateto('/');
         // ...
       }).catch((error) => {
         // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // // The email of the user's account used.
+        // const email = error.customData.email;
+        // // The AuthCredential type that was used.
+        // const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
 

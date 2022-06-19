@@ -61,7 +61,7 @@ export const Slider = () => {
                     <div className="desc_box">
                         <h1 className="title">{props.item.desc_heading}</h1>
                         <h3 className="desc">{props.item.description}</h3>
-                        <button className="shop_now_btn"><Link to="/productlist" >SHOP NOW</Link></button>
+                        <button className="shop_now_btn"><Link to="/productlist/clothing/Women" >SHOP NOW</Link></button>
                     </div>
                 </div>
     
