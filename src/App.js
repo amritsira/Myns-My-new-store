@@ -16,7 +16,7 @@ function App() {
         {/* <MyRouter cartqty={cartqty} cartItems={cartItems} addtocart={addtocart} deleteitem={deleteitem} wishlist={wishlist} addtowishlist={addtowishlist}  removewishlist={removewishlist}/> */}
       <Notestate>
          
-          <Header/>
+
          
             <MyRouter/>
           
