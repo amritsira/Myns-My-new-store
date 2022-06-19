@@ -5,17 +5,12 @@ import Products from "../components/Products";
 import Newsletter from "../components/Newsletter";
 // import Footer from "../components/Footer";
 // import { mobile } from "../responsive";
-import {useParams} from 'react-router-dom';
-// import {useContext} from 'react';
-// import Notecontext from '../context/Notecontext';
-import React from 'react'
-// import {useNavigate} from 'react-router-dom';
 
 const Container = styled.div``;
 
-// const Title = styled.h1`
-//   margin: 20px;
-// `;
+const Title = styled.h1`
+  margin: 20px;
+`;
 
 const FilterContainer = styled.div`
   display: flex;
@@ -42,20 +37,11 @@ const FilterContainer = styled.div`
 // const Option = styled.option``;
 
 const ProductList = () => {
-
-  // let contextdata = useContext(Notecontext);
-
- 
-  
-
-  const params = useParams();
-
-
   return (
     <Container>
       {/* <Header /> */}
       {/* <Announcement /> */}
-      {/* <Title>Products</Title> */}
+      <Title>Products</Title>
       
       <FilterContainer>
         
@@ -97,7 +83,7 @@ const ProductList = () => {
         </Filter> */}
       </FilterContainer>
 
-        <Products params={params} />
+      <Products  />
       <Newsletter />
       {/* <Footer /> */}
     

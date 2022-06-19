@@ -1,5 +1,5 @@
 import React from 'react'
-import { categories, categories2 , Categories_database} from '../data';
+import { categories, categories2 } from '../data';
 import styled from 'styled-components';
 import './Categories.css';
 import { Link } from "react-router-dom";
@@ -11,32 +11,28 @@ const Container = styled.div`
 `
 
 const Container2 = styled.div`
-padding:7px;
+  padding:9px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 `
 
 
-const Shopbtn = (props)=>{
-    let cat = props.cat;
-
-    let gender = (props.gender==null) ? '': props.gender; 
-    let link = `/productlist/${cat}/${gender}`;
-    return <Link to={link} > <button className="cat_card_btn"> SHOP NOW </button></Link>;
-}
+const shopbtn = <button className="cat_card_btn">
+    <Link to="/productlist" >SHOP NOW</Link>
+</button>;
 
 
-function Categorycard({item}) {
+
+function Categorycard(props) {
     
-    let arr = item.title.split(" ");
+    let arr = props.title.split(" ");
     return (
         <>
-            <div className="imgBox" key={item.id}>
-                <img className="cat_card_img" src={item.img}  alt={item.title}/>
+            <div className="imgBox" key={props.id}>
+                <img className="cat_card_img" src={props.img}  alt={props.title}/>
                 <span className="cat_card_title">
                     <p > {arr[0]} <br/> {arr[1]}</p>
-                    
-                    <Shopbtn cat={item.category} gender={item.gender}/>
+                    {shopbtn}
                 </span>
             </div>
         </>
@@ -45,28 +41,20 @@ function Categorycard({item}) {
 
 
 
-// function Categorycard2(props) {
-//     let arr = props.title.split(" ");
-//     return (
-//         <>
+function Categorycard2(props) {
+    let arr = props.title.split(" ");
+    return (
+        <>
 
-//             <div className="imgBox" key={props.id}>
-//                 <img className="cat_card_img" src={props.img} alt={props.title} />
-//                 <span className="cat_card_title">
-//                 <p > {arr[0]} <br/> {arr[1]}</p>
-//                     {shopbtn}
-//                 </span>
-//             </div>
+            <div className="imgBox" key={props.id}>
+                <img className="cat_card_img" src={props.img} alt={props.title} />
+                <span className="cat_card_title">
+                <p > {arr[0]} <br/> {arr[1]}</p>
+                    {shopbtn}
+                </span>
+            </div>
 
-//         </>
-//     )
-// }
-
-function Headermsg(){
-    return(
-        <div className="cat_header_msg">
-            <h1>MUST HAVE IN YOUR WARDROBE</h1>
-        </div>
+        </>
     )
 }
 
@@ -75,19 +63,18 @@ function Headermsg(){
 const Categories = () => {
     return (
         <>
-            <Headermsg/>
             <Container>
 
-                {Categories_database.map(item => (
-                    <Categorycard item={item} />
+                {categories.map(item => (
+                    <Categorycard img={item.img} key={item.id} title={item.title} />
                 ))}
             </Container>
 
-            {/* <Container2>
+            <Container2>
                 {categories2.map(item => (
                     <Categorycard2 img={item.img} key={item.id} title={item.title} />
                 ))}
-            </Container2> */}
+            </Container2>
         </>
     )
 }

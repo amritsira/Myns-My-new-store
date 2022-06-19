@@ -20,7 +20,7 @@ function Product({item }) {
         <div className='product' >
             <div className="circle"></div>
 
-            <img className="product__image" src={item.image} alt = {item.title} />
+            <img className="product__image" src={item.image} />
             {/* {props.item.img} */}
             <span className='info'>
 
@@ -50,8 +50,6 @@ function Product({item }) {
                 </span>
                 <button className="btn icon"><Link to={`/product/${item.id}`}>View</Link></button>
             </span>
-
-            <div className="product_title"><h3>{item.title}</h3></div>
         </div>
     )
 }

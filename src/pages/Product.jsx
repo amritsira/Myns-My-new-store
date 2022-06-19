@@ -21,11 +21,9 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-  ${'' /* width: 100%;
+  width: 100%;
   height: 90vh;
-  object-fit: cover; */}
-    width: 65%;
-    object-fit: cover;
+  object-fit: cover;
   ${mobile({ height: "40vh" })}
 `;
 
@@ -107,21 +105,15 @@ const AmountContainer = styled.div`
 //   margin: 0px 5px;
 // `;
 
-
-
-const CartButton = styled.button`
-    padding: 15px;
-    border: none;
-    background-color: ${(props) => props.color};
-    cursor: pointer;
-    font-weight: 500;
-    color: white;
-    font-size: 17px;
-    border-radius: 3px;
-    transition:all 0.3s ease;
+const Button = styled.button`
+  padding: 15px;
+  border: 2px solid teal;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
 
   &:hover{
-      background-color: ${(props) => props.hovercolor};
+      background-color: #f8f4f4;
   }
 `;
 
@@ -173,9 +165,7 @@ const Product = () => {
               <Amount>1</Amount>
               <Add/> */}
             </AmountContainer>
-            <CartButton color="#6653f1" hovercolor="#3a2d78" onClick={()=>contextdata.addtocart(item[0])}>ADD TO CART</CartButton>
-            <CartButton color="#c976a7" hovercolor="#bc418a" onClick={()=>contextdata.addtowishlist(item[0])}>ADD TO WISHLIST</CartButton>
-            
+            <Button onClick={()=>contextdata.addtocart(item[0])}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
