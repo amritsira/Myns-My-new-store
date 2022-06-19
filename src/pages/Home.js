@@ -20,7 +20,7 @@ function Home() {
       }
 
     useEffect(()=>{
-        if(islogin()==='false')
+        if(sessionStorage.login === undefined || islogin()==='false')
         {
             contextdata.setlogin(false);
             // console.log(islogin())
