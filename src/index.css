@@ -16,3 +16,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.glogin-button{
+  color: white;
+  background-color: #4d4d4d;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+.glogin-img{
+  border-radius:50%;
+  height:25px;
+  
+}
+
+
+.glogin-button:hover{
+  /* border: 2px solid; */
+  cursor:pointer;
+}
+
+.glogin-wrapper{
+  display: flex;
+  justify-content: center;
+}
