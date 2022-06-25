@@ -61,9 +61,8 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  width: 40%;
   border: none;
-  padding: 15px 20px;
+  padding: 15px 25px;
   background-color: #67aebd;
   color: white;
   cursor: pointer;
@@ -77,6 +76,7 @@ const Button = styled.button`
       letter-spacing:5px;
     }
 `;
+
 
 const CustomLink = styled.a`
   margin: 5px 0px;
@@ -152,17 +152,37 @@ const Login = () => {
 
 
 
+  const Googlebtn = (props)=>{
+    return (
+      <div className='glogin-wrapper'>
+        <Button {...props} className='glogin-button' >
+            <img className="glogin-img" src="data:image/png;base64,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"/>
+          SIGN IN
+          </Button>
+      </div>
+    );
+  }
+
+
+
+
+
   return (
     <Container>
       <Wrapper>
-        <Title>SIGN IN</Title>
+        <h1></h1>
+        <Googlebtn  onClick={(event) =>{
+            event.preventDefault();
+            Firebaselogin()
+          }}/>
+          <br/>
+
+          <hr/>
+        <Title>OR  </Title>
         <Form>
           <Input placeholder="Username" />
           <Input placeholder="Password" type="password" />
-          <Button onClick={(event) =>{
-            event.preventDefault();
-            Firebaselogin()
-          }}>LOGIN</Button>
+          <Button>LOGIN</Button>
           <CustomLink>CLICK ON LOGIN BUTTON TO USE YOUR GOOGLE ACCOUNT</CustomLink>
           <CustomLink><Link to='/register'>CREATE A NEW ACCOUNT </Link></CustomLink>
         </Form>
