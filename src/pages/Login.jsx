@@ -182,7 +182,10 @@ const Login = () => {
         <Form>
           <Input placeholder="Username" />
           <Input placeholder="Password" type="password" />
-          <Button>LOGIN</Button>
+          <Button onClick={(event) =>{
+            event.preventDefault();
+            Firebaselogin()
+          }}>LOGIN</Button>
           <CustomLink>CLICK ON LOGIN BUTTON TO USE YOUR GOOGLE ACCOUNT</CustomLink>
           <CustomLink><Link to='/register'>CREATE A NEW ACCOUNT </Link></CustomLink>
         </Form>
