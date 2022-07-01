@@ -47,11 +47,11 @@ const MyRouter = () => {
           <Route path="*" element={<h1>404 Page not found</h1>} />
 
         </Routes>
+                                   
+                                   
+                                   
+                                   
         {/* {(islogin() ==='true') ? <Footer/> : undefined } */}
-
-
-
-
 
       {/* {(contextdata.loggedin ===true) ?  */}
       {/* { (sessionStorage.login === 'true') ?
